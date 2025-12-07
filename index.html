@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<!-- Tailwind CSS (via CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tailwind Config -->
+<script src="assets/js/tailwind-config.js"></script>
+
+<!-- Project Styles -->
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Icons (Lucide) - We'll load a script or SVG sprite. For simple static, CDN script is easiest -->
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-background text-foreground antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="navbar--base fixed top-0 left-0 right-0 z-50 navbar--transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-[84px]">
+                <a href="index.html" class="text-2xl font-bold font-headline text-white tracking-[0.5px] text-[28px]">
+                    Tours & Travels
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex gap-9 items-center">
+                    <a href="index.html" class="nav-link font-medium text-base nav-link--active">Home</a>
+                    <a href="hotels.html" class="nav-link font-medium text-base">Hotels</a>
+                    <a href="tours.html" class="nav-link font-medium text-base">Tours</a>
+                    <a href="about.html" class="nav-link font-medium text-base">About</a>
+                    <a href="contact.html" class="nav-link font-medium text-base">Contact</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="contact.html"
+                        class="inline-flex items-center justify-center rounded-full px-[34px] py-[12px] font-semibold transition-transform hover:scale-105 hover:shadow-lg bg-white text-primary hover:bg-white/90"
+                        style="padding: 12px 34px;">
+                        Schedule Now
+                    </a>
+                </div>
+
+                <!-- Mobile Schedule Button -->
+                <div class="block md:hidden">
+                    <a href="contact.html"
+                        class="btn-primary inline-flex items-center justify-center rounded-full text-sm font-semibold h-9 px-3">
+                        Schedule Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 bg-background">
+        <!-- Hero Section -->
+        <section id="home"
+            class="relative h-[90vh] sm:h-screen flex items-center justify-center sm:justify-start text-white text-center sm:text-left w-full max-w-[100vw] overflow-x-hidden">
+            <!-- Hero Image -->
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop"
+                alt="Taj Mahal at sunrise reflecting in water" class="absolute inset-0 w-full h-full object-cover">
+
+            <div class="absolute inset-0 bg-gradient-to-b from-[rgba(7,13,26,0.6)] to-[rgba(7,13,26,0.3)]"></div>
+
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto sm:mx-0">
+                    <div
+                        class="inline-flex items-center gap-3 bg-[rgba(255,138,61,0.25)] text-white text-sm font-medium py-2 px-4 sm:py-2 sm:px-4 rounded-full mb-4">
+                        <span class="h-2 w-2 sm:h-2 sm:w-2 rounded-full bg-primary"></span>
+                        Discover India’s Hidden Gem
+                    </div>
+
+                    <div id="hero-text-container" class="transition-opacity duration-500">
+                        <h1
+                            class="text-4xl sm:text-6xl md:text-[72px] font-bold mt-4 font-headline tracking-tight leading-tight sm:leading-[1.1]">
+                            <span id="hero-title-1">Experience the</span>
+                            <span id="hero-title-2" class="text-primary">Magic</span><br>
+                            <span id="hero-title-3">of India</span>
+                        </h1>
+                        <p id="hero-subtitle"
+                            class="mt-4 max-w-[620px] text-base sm:text-lg text-[#E2E2E2] ml-0 leading-relaxed sm:leading-[1.6]">
+                            Discover India’s breathtaking landscapes, vibrant cultures, ancient temples, and
+                            unforgettable travel experiences with Tours & Travels.
+                        </p>
+                    </div>
+
+                    <div class="mt-6 flex flex-col sm:flex-row justify-center sm:justify-start gap-4 sm:gap-6">
+                        <a href="tours.html"
+                            class="btn-primary inline-flex items-center justify-center text-sm sm:text-base rounded-full px-8 py-6 sm:px-10 sm:py-7 uppercase tracking-wider font-bold">
+                            Explore Now
+                        </a>
+                        <a href="contact.html"
+                            class="inline-flex items-center justify-center text-sm sm:text-base bg-[rgba(255,255,255,0.08)] border-2 border-[rgba(255,255,255,0.3)] text-white hover:bg-white hover:text-black rounded-full px-8 py-6 sm:px-10 sm:py-7 uppercase tracking-wider font-bold transition-all duration-300">
+                            <i data-lucide="play" class="mr-2 h-5 w-5 fill-current"></i>
+                            Contact Us
+                        </a>
+                    </div>
+
+                    <div class="mt-6 flex justify-center sm:justify-start items-center gap-2" id="hero-indicators">
+                        <span class="h-[10px] rounded-full transition-all duration-500 w-8 bg-primary cursor-pointer"
+                            onclick="updateHero(0)"></span>
+                        <span
+                            class="h-[10px] rounded-full transition-all duration-500 w-[10px] bg-[#A0A0A0] cursor-pointer"
+                            onclick="updateHero(1)"></span>
+                        <span
+                            class="h-[10px] rounded-full transition-all duration-500 w-[10px] bg-[#A0A0A0] cursor-pointer"
+                            onclick="updateHero(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="services" class="py-16 sm:py-24 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10 lg:gap-y-16 items-center">
+
+                    <div class="max-w-lg text-center lg:text-left mx-auto">
+                        <div
+                            class="inline-block bg-primary/10 text-primary text-sm font-semibold rounded-full px-5 py-2 mb-3 tracking-[2px]">
+                            DISCOVER OUR TOURS
+                        </div>
+                        <h2 class="font-headline text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
+                            Journey of <span class="text-primary">Incredible</span><br>
+                            India
+                        </h2>
+                        <p class="text-base text-muted-foreground leading-relaxed mb-8">
+                            India is a land of diverse experiences — from snow-capped Himalayas and golden deserts to
+                            lush forests and tranquil beaches. Explore rich heritage, spiritual centers, and
+                            awe-inspiring natural beauty with curated trips by Tours & Travels.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="tours.html"
+                                class="btn-primary inline-flex items-center justify-center rounded-full font-semibold h-11 px-8 text-lg">
+                                Remember Me
+                            </a>
+                            <a href="about.html"
+                                class="btn-secondary border inline-flex items-center justify-center rounded-full font-semibold h-11 px-8 text-lg">
+                                Learn More
+                                <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 sm:gap-5 items-start">
+                        <div class="relative col-span-1 -mt-5">
+                            <div
+                                class="rounded-3xl shadow-[0_16px_40px_rgba(15,23,42,0.15)] h-[340px] sm:h-[440px] overflow-hidden border-0 relative bg-card text-card-foreground">
+                                <img src="https://images.unsplash.com/photo-1518005068251-37900150dfca?q=80&w=1974&auto=format&fit=crop"
+                                    alt="Man standing on rock overlooking mountains" class="object-cover w-full h-full">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <p class="absolute bottom-5 left-5 text-white text-sm font-semibold">Adventure Awaits
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-span-1 space-y-4 sm:space-y-5">
+                            <div
+                                class="relative rounded-3xl shadow-lg h-[160px] sm:h-[210px] overflow-hidden border-0 bg-card text-card-foreground">
+                                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop"
+                                    alt="Taj Mahal with people" class="object-cover w-full h-full">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                <p class="absolute bottom-4 left-4 text-white text-xs font-medium">Cultural Wonders</p>
+                            </div>
+
+                            <div class="rounded-3xl bg-[#FFE9D7] p-4 sm:p-5 border-0">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="map-pin" class="h-5 w-5 text-primary"></i>
+                                    <p class="font-semibold text-foreground">Goa, India</p>
+                                </div>
+                                <p class="mt-2 text-sm text-muted-foreground">
+                                    2,329m above sea level
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tours" class="mt-16 sm:mt-24">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Tour Card 1 -->
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_18px_40px_rgba(15,23,42,0.08)] border-0 group bg-card text-card-foreground">
+                            <div class="p-0">
+                                <div class="relative h-48 w-full overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1617380613434-7495e9b45dfb?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Snowy mountain peaks"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="p-5">
+                                    <span
+                                        class="bg-primary/10 text-primary hover:bg-primary/20 rounded-full px-3 py-1 text-xs border-0 font-semibold">Adventure</span>
+                                    <h4 class="font-semibold text-foreground mt-2">Himalayan Trekking</h4>
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground mt-4">
+                                        <i data-lucide="users" class="h-4 w-4"></i>
+                                        <span>24+ travelers joined</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card 2 -->
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_18px_40px_rgba(15,23,42,0.08)] border-0 group bg-card text-card-foreground">
+                            <div class="p-0">
+                                <div class="relative h-48 w-full overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1932&auto=format&fit=crop"
+                                        alt="Kerala backwaters boat"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="p-5">
+                                    <span
+                                        class="bg-primary/10 text-primary hover:bg-primary/20 rounded-full px-3 py-1 text-xs border-0 font-semibold">Discovery</span>
+                                    <h4 class="font-semibold text-foreground mt-2">Backwaters of Kerala</h4>
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground mt-4">
+                                        <i data-lucide="users" class="h-4 w-4"></i>
+                                        <span>18+ travelers joined</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card 3 -->
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_18px_40px_rgba(15,23,42,0.08)] border-0 group bg-card text-card-foreground">
+                            <div class="p-0">
+                                <div class="relative h-48 w-full overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Rajasthan Fort"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="p-5">
+                                    <span
+                                        class="bg-primary/10 text-primary hover:bg-primary/20 rounded-full px-3 py-1 text-xs border-0 font-semibold">Photography</span>
+                                    <h4 class="font-semibold text-foreground mt-2">Rajasthan Fort Tour</h4>
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground mt-4">
+                                        <i data-lucide="users" class="h-4 w-4"></i>
+                                        <span>32+ travelers joined</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card 4 -->
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_18px_40px_rgba(15,23,42,0.08)] border-0 group bg-card text-card-foreground">
+                            <div class="p-0">
+                                <div class="relative h-48 w-full overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1697114288400-71238cf038a2?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Tiger in forest"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="p-5">
+                                    <span
+                                        class="bg-primary/10 text-primary hover:bg-primary/20 rounded-full px-3 py-1 text-xs border-0 font-semibold">Heritage</span>
+                                    <h4 class="font-semibold text-foreground mt-2">Sundarbans Wildlife Safari</h4>
+                                    <div class="flex items-center gap-2 text-sm text-muted-foreground mt-4">
+                                        <i data-lucide="users" class="h-4 w-4"></i>
+                                        <span>15+ travelers joined</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description Section -->
+        <section class="py-16 sm:py-24 bg-card">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+                <div class="inline-block bg-[#FFE1C7] text-foreground text-sm font-medium rounded-full px-6 py-2 mb-4">
+                    Discover the Magic
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-bold font-headline text-foreground leading-tight mb-6">
+                    Why India is <span class="text-primary">Unforgettable</span>
+                </h2>
+
+                <div class="max-w-3xl mx-auto space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    <p>
+                        India isn’t just a destination — it’s an emotion. From the peaceful ghats of Varanasi and the
+                        vibrant streets of Jaipur to the tranquil backwaters of Kerala, every corner of India tells its
+                        own story.
+                    </p>
+                    <p>
+                        Experience diverse climates, unique traditions, and landscapes that range from mountains and
+                        deserts to beaches and rainforests.
+                    </p>
+                </div>
+
+                <div class="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-8">
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="sun" class="h-8 w-8 text-primary"></i>
+                        <h3 class="mt-3 text-lg font-semibold text-foreground">Sunrise Magic</h3>
+                        <p class="mt-2 text-base text-muted-foreground">Witness breathtaking sunrises at places like
+                            Kanyakumari & Ladakh</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="camera" class="h-8 w-8 text-primary"></i>
+                        <h3 class="mt-3 text-lg font-semibold text-foreground">Photography Paradise</h3>
+                        <p class="mt-2 text-base text-muted-foreground">Capture vibrant streets, architecture, nature &
+                            festivals</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="sparkles" class="h-8 w-8 text-primary"></i>
+                        <h3 class="mt-3 text-lg font-semibold text-foreground">Cultural Immersion</h3>
+                        <p class="mt-2 text-base text-muted-foreground">Experience India’s diverse traditions, cuisines
+                            & heritage</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 sm:mt-20">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(15,23,42,0.10)] w-full max-w-4xl mx-auto h-56 sm:h-64 border-0 bg-card">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop"
+                            alt="Person looking at Taj Mahal" class="object-cover w-full h-full">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div
+                            class="absolute inset-0 flex flex-col justify-end items-center p-6 sm:p-8 text-center text-white">
+                            <p class="text-lg sm:text-xl font-semibold">“A once-in-a-lifetime experience”</p>
+                            <p class="mt-1 text-sm text-gray-300 tracking-wide">— National Geographic Traveler</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Accommodations Section -->
+        <section id="accommodations" class="py-24 sm:py-28 bg-background">
+            <div class="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4">
+                    <div
+                        class="inline-block bg-[#FFE1C7] text-foreground text-sm font-semibold rounded-full px-6 py-2 mb-3 tracking-wide">
+                        Premium Stays
+                    </div>
+                    <h2 class="text-4xl font-bold font-headline text-foreground">
+                        Exceptional Villas &amp; <span class="text-primary">Hotels</span>
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Relax and rejuvenate with luxurious stays handpicked by Tours & Travels — from heritage palaces
+                        to modern resorts.
+                    </p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="mt-10 flex flex-wrap items-center justify-center gap-2">
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-card text-foreground shadow-[0_8px_20px_rgba(15,23,42,0.07)]"
+                        data-tab="All" onclick="filterAccommodations('All')">All</button>
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                        data-tab="Resort" onclick="filterAccommodations('Resort')">Resort</button>
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                        data-tab="Villa" onclick="filterAccommodations('Villa')">Villa</button>
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                        data-tab="Hotel" onclick="filterAccommodations('Hotel')">Hotel</button>
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                        data-tab="Cottage" onclick="filterAccommodations('Cottage')">Cottage</button>
+                    <button
+                        class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                        data-tab="Homestay" onclick="filterAccommodations('Homestay')">Homestay</button>
+                </div>
+
+                <div class="mt-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="accommodation-grid">
+                        <!-- Items will be populated by JS or static HTML based on filter. For now, static items for 'All' -->
+
+                        <!-- Item 1 -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Resort">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2025&auto=format&fit=crop"
+                                        alt="Luxury Resort Pool" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Resort</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.8</span>
+                                        <span class="text-sm text-muted-foreground">(128)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Royal Rajasthan Resort</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Pool</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Spa</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">WiFi</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">$120</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Villa">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Goa Beach Villa" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Villa</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.9</span>
+                                        <span class="text-sm text-muted-foreground">(85)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Goa Beachfront Villa</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Beach
+                                        View</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Private
+                                        Pool</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">$250</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Hotel">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Luxury Hotel" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Hotel</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.7</span>
+                                        <span class="text-sm text-muted-foreground">(210)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Mumbai Taj Palace</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">City
+                                        View</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Luxury</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">$300</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-16 text-center">
+                        <a href="hotels.html"
+                            class="btn-primary inline-flex items-center justify-center rounded-full font-semibold h-11 px-8 text-lg">
+                            View All Stays
+                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 sm:py-28 bg-card">
+            <div class="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-12">
+                    <div
+                        class="inline-block bg-[#FFE1C7] text-foreground text-sm font-semibold rounded-full px-6 py-2 mb-3 tracking-wide">
+                        Traveler Stories
+                    </div>
+                    <h2 class="text-4xl font-bold font-headline text-foreground">
+                        What Our Guests <span class="text-primary">Say</span>
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                        Real experiences from travelers who explored India with Tours & Travels.
+                    </p>
+                </div>
+
+                <!-- Carousel Wrapper -->
+                <div class="w-full max-w-4xl mx-auto relative group">
+                    <div id="testimonial-carousel" class="overflow-hidden">
+                        <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track">
+                            <!-- Item 1 -->
+                            <div class="min-w-full p-1">
+                                <div
+                                    class="rounded-3xl shadow-[0_24px_60px_rgba(15,23,42,0.12)] border-0 overflow-visible bg-card text-card-foreground">
+                                    <div
+                                        class="relative flex flex-col items-center justify-center p-8 sm:p-12 text-center">
+                                        <div
+                                            class="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+                                            <div class="flex items-center gap-4 text-left">
+                                                <span
+                                                    class="relative flex h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                                                    <img class="aspect-square h-full w-full"
+                                                        src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop"
+                                                        alt="Aarav Mehta">
+                                                </span>
+                                                <div>
+                                                    <p class="font-bold text-lg text-foreground">Aarav Mehta</p>
+                                                    <p class="text-sm text-muted-foreground">Mumbai, India</p>
+                                                    <div class="flex items-center gap-0.5 mt-1">
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-muted-foreground font-medium">November 2025</p>
+                                        </div>
+                                        <i data-lucide="quote" class="h-12 w-12 text-primary/20 my-6"></i>
+                                        <p class="text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                                            “Our Kashmir snow tour was perfectly organized. Hotels, travel and
+                                            sightseeing were handled smoothly. Tours & Travels made our family trip
+                                            completely worry-free.”
+                                        </p>
+                                        <div class="shrink-0 bg-border h-[1px] w-full my-8"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="min-w-full p-1">
+                                <div
+                                    class="rounded-3xl shadow-[0_24px_60px_rgba(15,23,42,0.12)] border-0 overflow-visible bg-card text-card-foreground">
+                                    <div
+                                        class="relative flex flex-col items-center justify-center p-8 sm:p-12 text-center">
+                                        <div
+                                            class="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+                                            <div class="flex items-center gap-4 text-left">
+                                                <span
+                                                    class="relative flex h-16 w-16 shrink-0 overflow-hidden rounded-full">
+                                                    <img class="aspect-square h-full w-full"
+                                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+                                                        alt="Priya Sharma">
+                                                </span>
+                                                <div>
+                                                    <p class="font-bold text-lg text-foreground">Priya Sharma</p>
+                                                    <p class="text-sm text-muted-foreground">New Delhi, India</p>
+                                                    <div class="flex items-center gap-0.5 mt-1">
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                        <i data-lucide="star"
+                                                            class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="text-sm text-muted-foreground font-medium">October 2025</p>
+                                        </div>
+                                        <i data-lucide="quote" class="h-12 w-12 text-primary/20 my-6"></i>
+                                        <p class="text-lg text-foreground/80 leading-relaxed max-w-2xl">
+                                            “Our Kerala backwaters honeymoon was magical. The resort, houseboat stay and
+                                            pickups were all top-class. Tours & Travels handled every detail with care.”
+                                        </p>
+                                        <div class="shrink-0 bg-border h-[1px] w-full my-8"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-center justify-center gap-4 w-full mt-4">
+                        <div class="flex items-center gap-2">
+                            <button class="h-2 rounded-full transition-all duration-300 w-6 bg-primary"
+                                onclick="goToSlide(0)"></button>
+                            <button class="h-2 rounded-full transition-all duration-300 w-2 bg-gray-300"
+                                onclick="goToSlide(1)"></button>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-6 right-6 flex items-center gap-3 hidden sm:flex">
+                        <button onclick="prevSlide()"
+                            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-11 w-11 rounded-full bg-secondary text-foreground hover:bg-muted">
+                            <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                        </button>
+                        <button onclick="nextSlide()"
+                            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-11 w-11 rounded-full bg-secondary text-foreground hover:bg-muted">
+                            <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8 text-center">
+                    <div class="relative">
+                        <p class="text-5xl font-bold price-gradient">12,500+</p>
+                        <h4 class="mt-3 text-lg font-semibold text-foreground">Happy Travellers</h4>
+                        <p class="mt-1 text-sm text-muted-foreground">Across India since 2018</p>
+                        <div class="absolute top-1/2 right-0 h-16 w-px bg-border -translate-y-1/2 hidden md:block">
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <p class="text-5xl font-bold price-gradient">98%</p>
+                        <h4 class="mt-3 text-lg font-semibold text-foreground">Satisfaction Rate</h4>
+                        <p class="mt-1 text-sm text-muted-foreground">Based on reviews</p>
+                        <div class="absolute top-1/2 right-0 h-16 w-px bg-border -translate-y-1/2 hidden md:block">
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <p class="text-5xl font-bold price-gradient">72%</p>
+                        <h4 class="mt-3 text-lg font-semibold text-foreground">Repeat Customers</h4>
+                        <p class="mt-1 text-sm text-muted-foreground">Book again for more adventures</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #141414;" class="text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 font-bold text-2xl font-headline">
+                        <i data-lucide="mountain" class="h-8 w-8 text-primary"></i>
+                        <span>Tours & Travels</span>
+                    </a>
+                    <p class="text-sm text-[#B0B0B0] mt-4">Experience the Magic of India.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">About</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-sm text-[#B0B0B0] hover:text-white">About Us</a></li>
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Destinations in
+                                India</a></li>
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Packages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">Support</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Contact</a></li>
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Support</a></li>
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">FAQ</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Tours</a></li>
+                        <li><a href="hotels.html" class="text-sm text-[#B0B0B0] hover:text-white">Accommodation</a></li>
+                        <li><a href="#" class="text-sm text-[#B0B0B0] hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">Newsletter</h3>
+                    <p class="text-sm text-[#B0B0B0] mt-4">Get the latest travel inspiration and deals.</p>
+                    <form onsubmit="event.preventDefault(); alert('Subscribed!');"
+                        class="mt-4 flex flex-col sm:flex-row gap-2">
+                        <input type="email" placeholder="Your email"
+                            class="flex h-10 w-full rounded-md border bg-gray-800 border-gray-600 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-grow text-white"
+                            required>
+                        <button type="submit"
+                            class="btn-primary inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-sm text-[#B0B0B0]">&copy; 2025 Tours & Travels. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"
+                            class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook"
+                            class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube" class="h-5 w-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Init Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

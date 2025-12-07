@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-background text-foreground antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header
+        class="navbar--base fixed top-0 left-0 right-0 z-50 navbar--scrolled bg-nav-background shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-[84px]">
+                <a href="index.html" class="text-2xl font-bold font-headline text-white tracking-[0.5px] text-[28px]">
+                    Tours & Travels
+                </a>
+                <nav class="hidden md:flex gap-9 items-center">
+                    <a href="index.html" class="nav-link font-medium text-base">Home</a>
+                    <a href="hotels.html" class="nav-link font-medium text-base nav-link--active">Hotels</a>
+                    <a href="tours.html" class="nav-link font-medium text-base">Tours</a>
+                    <a href="about.html" class="nav-link font-medium text-base">About</a>
+                    <a href="contact.html" class="nav-link font-medium text-base">Contact</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="contact.html"
+                        class="inline-flex items-center justify-center rounded-full px-[34px] py-[12px] font-semibold transition-transform hover:scale-105 hover:shadow-lg bg-white text-primary hover:bg-white/90"
+                        style="padding: 12px 34px;">
+                        Schedule Now
+                    </a>
+                </div>
+                <div class="block md:hidden">
+                    <a href="contact.html"
+                        class="btn-primary inline-flex items-center justify-center rounded-full text-sm font-semibold h-9 px-3">
+                        Schedule Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+
+
+    <main class="flex-1">
+        <!-- Page Header -->
+        <section class="bg-background pt-32 pb-12 text-center">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-5xl md:text-6xl font-bold font-headline text-foreground leading-tight">
+                    Exceptional Villas & Hotels
+                </h1>
+                <p class="mt-6 text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                    Relax and rejuvenate with luxurious stays handpicked by Tours &
+                    Travels — from heritage palaces to modern resorts across India.
+                </p>
+            </div>
+        </section>
+
+        <div class="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+            <!-- Tabs -->
+            <div class="mb-10 flex flex-wrap items-center justify-center gap-2">
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-card text-foreground shadow-[0_8px_20px_rgba(15,23,42,0.07)]"
+                    data-tab="All" onclick="filterAccommodations('All')">All</button>
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                    data-tab="Resort" onclick="filterAccommodations('Resort')">Resort</button>
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                    data-tab="Villa" onclick="filterAccommodations('Villa')">Villa</button>
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                    data-tab="Hotel" onclick="filterAccommodations('Hotel')">Hotel</button>
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                    data-tab="Cottage" onclick="filterAccommodations('Cottage')">Cottage</button>
+                <button
+                    class="tab-btn rounded-full text-sm font-medium transition-all duration-300 border-0 py-2 px-5 bg-secondary text-muted-foreground hover:bg-muted"
+                    data-tab="Homestay" onclick="filterAccommodations('Homestay')">Homestay</button>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-x-8 gap-y-12">
+                <!-- Sidebar -->
+                <aside>
+                    <div class="sticky top-28">
+                        <div
+                            class="rounded-3xl shadow-[0_24px_40px_rgba(15,23,42,0.1)] p-6 space-y-6 bg-card text-card-foreground">
+                            <h3 class="text-lg font-semibold text-foreground">Filter Your Search</h3>
+
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700">Check-in Date</label>
+                                <input type="date"
+                                    class="flex h-[48px] w-full rounded-[14px] border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700">Check-out Date</label>
+                                <input type="date"
+                                    class="flex h-[48px] w-full rounded-[14px] border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-muted-foreground">₹2k</span>
+                                    <span class="font-semibold text-primary text-lg" id="budget-display">₹10,000</span>
+                                    <span class="text-sm text-muted-foreground">₹50k</span>
+                                </div>
+                                <input type="range" min="2000" max="50000" step="1000" value="10000" class="w-full"
+                                    oninput="document.getElementById('budget-display').innerText = '₹' + parseInt(this.value).toLocaleString()">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-gray-700">Number of Guests</label>
+                                <div
+                                    class="flex items-center justify-between h-[48px] rounded-[14px] bg-[#F9FAFB] border border-[#E5E7EB] px-3">
+                                    <button
+                                        class="rounded-full h-8 w-8 flex items-center justify-center hover:bg-gray-100"
+                                        onclick="updateGuests(-1)">
+                                        <i data-lucide="minus" class="h-4 w-4"></i>
+                                    </button>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="users" class="h-5 w-5 text-muted-foreground"></i>
+                                        <span class="font-semibold text-lg" id="guest-count">2</span>
+                                    </div>
+                                    <button
+                                        class="rounded-full h-8 w-8 flex items-center justify-center hover:bg-gray-100"
+                                        onclick="updateGuests(1)">
+                                        <i data-lucide="plus" class="h-4 w-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Grid -->
+                <main>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="accommodation-grid">
+
+                        <!-- Item 1: Resort -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Resort">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2025&auto=format&fit=crop"
+                                        alt="Luxury Resort Pool" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Resort</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.8</span>
+                                        <span class="text-sm text-muted-foreground">(128)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Royal Rajasthan Resort</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Pool</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Spa</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">WiFi</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">₹12,000</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Villa -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Villa">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Goa Beach Villa" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Villa</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.9</span>
+                                        <span class="text-sm text-muted-foreground">(85)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Goa Beachfront Villa</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Beach
+                                        View</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Private
+                                        Pool</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">₹25,000</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Hotel -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Hotel">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
+                                        alt="Mumbai Taj Palace" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Hotel</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.7</span>
+                                        <span class="text-sm text-muted-foreground">(210)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Mumbai Taj Palace</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">City
+                                        View</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Luxury</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">₹30,000</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Cottage -->
+                        <div class="bg-card text-card-foreground accommodation-item rounded-3xl overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)] flex flex-col border-0"
+                            data-type="Cottage">
+                            <div class="p-0 relative flex-shrink-0">
+                                <div class="relative h-[220px] w-full">
+                                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1887&auto=format&fit=crop"
+                                        alt="Mountain Cottage" class="w-full h-full object-cover">
+                                    <span
+                                        class="bg-[#4ADE80] absolute top-4 right-4 text-white border-0 text-xs font-bold py-1.5 px-3 rounded-full">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow bg-card">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-primary font-semibold text-sm">Cottage</span>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="star" class="h-4 w-4 text-amber-400 fill-amber-400"></i>
+                                        <span class="font-semibold text-sm">4.6</span>
+                                        <span class="text-sm text-muted-foreground">(95)</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold font-headline mt-1">Manali Mountain Cottage</h3>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Mountain
+                                        View</span>
+                                    <span
+                                        class="bg-secondary text-secondary-foreground text-xs font-medium rounded-md px-2.5 py-0.5">Fireplace</span>
+                                </div>
+                                <div class="mt-auto pt-5 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-sm text-muted-foreground">From</p>
+                                        <p class="text-2xl font-bold price-gradient">₹8,000</p>
+                                        <p class="text-sm text-muted-foreground">per night</p>
+                                    </div>
+                                    <a href="hotel-detail.html"
+                                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center p-2 px-5">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4"></i> Book
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <section class="py-20 sm:py-24 bg-secondary/50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold font-headline text-foreground">
+                    Need help choosing the right stay?
+                </h2>
+                <p class="mt-4 text-muted-foreground max-w-xl mx-auto">
+                    Our travel experts can help you find the perfect hotel or villa based
+                    on your dates, budget, and destination.
+                </p>
+                <div class="mt-8">
+                    <a href="contact.html"
+                        class="btn-primary rounded-full font-semibold inline-flex items-center justify-center px-8 py-3 text-lg">
+                        Contact Our Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="background-color: #141414;" class="text-white">
+        <!-- Reusing Footer HTML from index.html -->
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 font-bold text-2xl font-headline">
+                        <i data-lucide="mountain" class="h-8 w-8 text-primary"></i>
+                        <span>Tours & Travels</span>
+                    </a>
+                    <p class="text-sm text-[#B0B0B0] mt-4">Experience the Magic of India.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">About</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-sm text-[#B0B0B0] hover:text-white">About Us</a></li>
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Destinations in
+                                India</a></li>
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Packages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">Support</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Contact</a></li>
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Support</a></li>
+                        <li><a href="contact.html" class="text-sm text-[#B0B0B0] hover:text-white">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">FAQ</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="tours.html" class="text-sm text-[#B0B0B0] hover:text-white">Tours</a></li>
+                        <li><a href="hotels.html" class="text-sm text-[#B0B0B0] hover:text-white">Accommodation</a></li>
+                        <li><a href="#" class="text-sm text-[#B0B0B0] hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <h3 class="font-semibold tracking-wider uppercase text-[#F3F3F3]">Newsletter</h3>
+                    <p class="text-sm text-[#B0B0B0] mt-4">Get the latest travel inspiration and deals.</p>
+                    <form onsubmit="event.preventDefault(); alert('Subscribed!');"
+                        class="mt-4 flex flex-col sm:flex-row gap-2">
+                        <input type="email" placeholder="Your email"
+                            class="flex h-10 w-full rounded-md border bg-gray-800 border-gray-600 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-grow text-white"
+                            required>
+                        <button type="submit"
+                            class="btn-primary inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-sm text-[#B0B0B0]">&copy; 2025 Tours & Travels. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"
+                            class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook"
+                            class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube" class="h-5 w-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Simple inline script for guest counter specific to this page
+        function updateGuests(change) {
+            const el = document.getElementById('guest-count');
+            let val = parseInt(el.innerText);
+            val = Math.max(1, val + change);
+            el.innerText = val;
+        }
+    </script>
+</body>
+
+</html>
