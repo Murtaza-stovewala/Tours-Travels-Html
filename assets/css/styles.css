@@ -110,24 +110,24 @@ textarea,
 }
 
 .nav-link:hover::after,
-.nav-link--active::after {
+.nav-link.active::after {
     width: 100%;
 }
 
-.nav-link--active {
+.nav-link.active {
     color: hsl(var(--primary));
     font-weight: 600;
 }
 
-.navbar--base {
+.navbar {
     transition: all 300ms ease-in-out;
 }
 
-.navbar--transparent {
+.navbar-trans {
     background-color: transparent;
 }
 
-.navbar--scrolled {
+.navbar-scrolled {
     background-color: hsl(var(--nav-background));
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
@@ -169,4 +169,3 @@ textarea,
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-

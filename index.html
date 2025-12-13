@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<!-- Tailwind CSS (via CDN) -->
-<script src="https://cdn.tailwindcss.com"></script>
+<html lang="en">
 
-<!-- Tailwind Config -->
-<script src="assets/js/tailwind-config.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours & Travels - Experience the Magic of India</title>
 
-<!-- Project Styles -->
-<link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Icons (Lucide) - We'll load a script or SVG sprite. For simple static, CDN script is easiest -->
-<script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind Config -->
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Project Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Icons (Lucide) - We'll load a script or SVG sprite. For simple static, CDN script is easiest -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body class="bg-background text-foreground antialiased flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="navbar--base fixed top-0 left-0 right-0 z-50 navbar--transparent">
+    <header class="navbar fixed top-0 left-0 right-0 z-50 navbar-trans">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-[84px]">
                 <a href="index.html" class="text-2xl font-bold font-headline text-white tracking-[0.5px] text-[28px]">
@@ -24,7 +31,7 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex gap-9 items-center">
-                    <a href="index.html" class="nav-link font-medium text-base nav-link--active">Home</a>
+                    <a href="index.html" class="nav-link font-medium text-base active">Home</a>
                     <a href="hotels.html" class="nav-link font-medium text-base">Hotels</a>
                     <a href="tours.html" class="nav-link font-medium text-base">Tours</a>
                     <a href="about.html" class="nav-link font-medium text-base">About</a>

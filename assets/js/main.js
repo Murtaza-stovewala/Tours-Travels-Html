@@ -10,15 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- Navbar Scroll Effect ---
 function setupNavbarScroll() {
-    const header = document.querySelector(".navbar--base");
+    const header = document.querySelector(".navbar");
     if (header) {
         const handleScroll = () => {
             if (window.scrollY > 50) {
-                header.classList.add("navbar--scrolled");
-                header.classList.remove("navbar--transparent");
+                header.classList.add("navbar-scrolled");
+                header.classList.remove("navbar-trans");
             } else {
-                header.classList.remove("navbar--scrolled");
-                header.classList.add("navbar--transparent");
+                header.classList.remove("navbar-scrolled");
+                header.classList.add("navbar-trans");
             }
         };
         window.addEventListener("scroll", handleScroll);
