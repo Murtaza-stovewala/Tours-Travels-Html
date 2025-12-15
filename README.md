@@ -1,4 +1,21 @@
+<!--
+@author Murtaza StoveWala
+@description Tours & Travels - Modern Travel Booking Website
+@license MIT
+-->
+
+<div align="center">
+
 # 🚀 Tours & Travels
+
+[![Author](https://img.shields.io/badge/Author-Murtaza%20StoveWala-cyan?style=for-the-badge)](https://github.com/Murtaza-stovewala)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
+
+</div>
 
 Tours & Travels is a modern, fully responsive travel and tour booking website template built with **HTML5, Vanilla JavaScript, and Tailwind CSS**.  
 This project showcases curated travel experiences across India, featuring immersive hotel listings, tour packages, detailed description pages, and a polished, professional user interface.
@@ -102,4 +119,48 @@ Tours-&-Travels/
 
 ---
 
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- ✅ Use this project commercially
+- ✅ Modify and distribute
+- ✅ Use privately
+
+**Attribution appreciated but not required.**
+
+---
+
+## 📞 Contact
+
+Have questions or suggestions? Feel free to reach out!
+
+**Murtaza StoveWala**
+- 🌐 GitHub: [@Murtaza-stovewala](https://github.com/Murtaza-stovewala)
+- 📧 Email: [Contact via GitHub](https://github.com/Murtaza-stovewala)
+- 💼 Portfolio: [Your Portfolio Link]
+
+---
+
+## 🙏 Acknowledgments
+
+**Built with ❤️ by Murtaza StoveWala**
+
+Special thanks to:
+- 🎨 **Tailwind CSS** - For the amazing utility-first framework
+- 🎯 **Lucide Icons** - For beautiful, consistent icons
+- 🌟 **ShadCN UI** - For design inspiration
+- 💡 **The Open Source Community** - For continuous inspiration and support
+
+---
+
+<div align="center">
+
+### 🌟 If you find this project helpful, please give it a ⭐!
+
+**Developed with passion by Murtaza StoveWala**
+
 Your Tours & Travels project is now a ready-to-deploy, professional-grade travel website template.
+
+</div>
