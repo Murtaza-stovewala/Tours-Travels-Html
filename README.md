@@ -3,12 +3,18 @@
 @description Tours & Travels - Modern Travel Booking Website
 @license MIT
 -->
+# 🚀 Tours & Travels
+
+
+🌐 **Live Demo**: [https://tours-travels-html.vercel.app/](https://tours-travels-html.vercel.app/)
+
+Tours & Travels is a modern, fully responsive travel and tour booking website template built with **HTML5, Vanilla JavaScript, and Tailwind CSS**.  
+This project showcases curated travel experiences across India, featuring immersive hotel listings, tour packages, detailed description pages, and a polished, professional user interface.
+"https://tours-travels-html.vercel.app"
+
 
 <div align="center">
 
-# 🚀 Tours & Travels
-
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-blue?style=for-the-badge)](https://tours-travels-html.vercel.app)
 [![Author](https://img.shields.io/badge/Author-Murtaza%20StoveWala-cyan?style=for-the-badge)](https://github.com/Murtaza-stovewala)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
@@ -18,9 +24,7 @@
 
 </div>
 
-Tours & Travels is a modern, fully responsive travel and tour booking website template built with **HTML5, Vanilla JavaScript, and Tailwind CSS**.  
-This project showcases curated travel experiences across India, featuring immersive hotel listings, tour packages, detailed description pages, and a polished, professional user interface.
-"https://tours-travels-html.vercel.app"
+
 ## 🌟 Features Overview
 
 ### 🔥 Immersive Homepage
